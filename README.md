@@ -13,122 +13,27 @@
 <!-- * * * Thanks! * * *                                                    -->
 <!---------------------------------------------------------------------------->
 
-![cobol](http://i.imgur.com/DutRzDr.png)
+![cobol-promises](http://i.imgur.com/DfsVV3F.png)
 
-# cobol [![Donate now][donate-now]][paypal-donations]
+# cobol-promises [![Donate now][donate-now]][paypal-donations]
 
-COBOL bridge for NodeJS which allows you to run COBOL code from NodeJS.
-
-## Can I use this on production?
-Of course, you can! It's production ready! If you ever did such a thing, [ping me (@IonicaBizau)](https://twitter.com/IonicaBizau). :boom: :dizzy:
+COBOL bridge for NodeJS with promies support.
 
 ## Installation
 
-Currently GNUCobol is required. If you are using a debian-based distribution you can install it using:
-
 ```sh
-$ sudo apt-get install open-cobol
+$ npm i cobol-promises
 ```
-
-It would be interesting to fallback into a COBOL compiler written in NodeJS. [Contributions are welcome!][contributing] :smile:
-
-Then, install the `cobol` package.
-
-```sh
-$ npm i cobol
-```
-
-## Press Highlights
-
-This project seems to more popular than I expected. :smile: If you wrote or found an article about this project which is not added in this list, [add it][contributing].
-
- - [Calling 1959 from your Web code: A COBOL bridge for Node.js](http://arstechnica.com/information-technology/2015/08/calling-1959-from-your-web-code-a-cobol-bridge-for-node-js/) ([ArsTechnica](http://arstechnica.com/), by [Sean Gallagher](http://arstechnica.com/author/sean-gallagher/))
- - [Cobol -- yes, Cobol -- gets a bridge to Node.js](http://www.infoworld.com/article/2972314/application-development/cobol-nodejs-bridge.html) ([InfoWorld](http://www.infoworld.com/), by [Paul Krill](http://www.infoworld.com/author/Paul-Krill/))
- - [Ein COBOL-Plug-in für Node.js](http://www.heise.de/newsticker/meldung/Ein-COBOL-Plug-in-fuer-Node-js-2783225.html) ([Heise Online](http://heise.de), by [Alexander Neumann](http://www.heise.de/ix/editors/ix_redakteur_907177.html))
- - [Dit krijg je als je Node.js met COBOL kruist](http://webwereld.nl/open-source/88040-dit-krijg-je-als-je-node-js-met-cobol-kruist) ([Webwereld](http://webwereld.nl/), by [Chris Koenis](http://webwereld.nl/auteur/chris-koenis))
- - [COBOL for Node.js](http://www.i-programmer.info/news/98-languages/8904-cobol-for-nodejs.html) ([I Programmer](http://www.i-programmer.info/), by [Kay Ewbank](https://twitter.com/KayEwbank))
- - [Nagyon durva: Már COBOL-ból is lehet programozni a Node.js-t](http://prog.hu/hirek/4012/nagyon-durva-mar-cobol-bol-is-lehet-programozni-a-node-js-t) ([prog.hu](http://prog.hu/), by [Sting](http://prog.hu/azonosito/info/Sting?pop=1))
- - [Micro Focus Updates COBOL for Visual Studio 2015](http://www.eweek.com/developer/micro-focus-updates-cobol-for-visual-studio-2015.html) ([eWeek](http://eweek.com/), by [Darryl K. Taft](http://www.eweek.com/cp/bio/Darryl-K.-Taft/))
 
 ## Example
 
 ```js
 // Dependencies
-var Cobol = require("cobol");
+var Cobol = require("cobol-promises")
+  , Promise = require("promiscuous")
+  ;
 
-// Execute some COBOL snippets
-Cobol(function () { /*
-       IDENTIFICATION DIVISION.
-       PROGRAM-ID. HELLO.
-       ENVIRONMENT DIVISION.
-       DATA DIVISION.
-       PROCEDURE DIVISION.
-
-       PROGRAM-BEGIN.
-           DISPLAY "Hello world".
-
-       PROGRAM-DONE.
-           STOP RUN.
-*/ }, function (err, data) {
-    console.log(err || data);
-});
-// => "Hello World"
-
-Cobol(__dirname + "/args.cbl", {
-    args: ["Alice"]
-}, function (err, data) {
-    console.log(err || data);
-});
-// => "Your name is: Alice"
-
-// This will read data from stdin
-Cobol(function () { /*
-       IDENTIFICATION DIVISION.
-       PROGRAM-ID. APP.
-      *> http://stackoverflow.com/q/938760/1420197
-
-       ENVIRONMENT DIVISION.
-       INPUT-OUTPUT SECTION.
-       FILE-CONTROL.
-       SELECT SYSIN ASSIGN TO KEYBOARD ORGANIZATION LINE SEQUENTIAL.
-
-       DATA DIVISION.
-       FILE SECTION.
-       FD SYSIN.
-       01 ln PIC X(64).
-          88 EOF VALUE HIGH-VALUES.
-       WORKING-STORAGE SECTION.
-       PROCEDURE DIVISION.
-       DISPLAY "Write something and then press the <Enter> key"
-       OPEN INPUT SYSIN
-       READ SYSIN
-       AT END SET EOF TO TRUE
-       END-READ
-       PERFORM UNTIL EOF
-       DISPLAY "You wrote: ", ln
-       DISPLAY "------------"
-       READ SYSIN
-       AT END SET EOF TO TRUE
-       END-READ
-       END-PERFORM
-       CLOSE SYSIN
-       STOP RUN.
-*/ }, {
-    stdin: process.stdin
-  , stdout: process.stdout
-}, function (err) {
-    if (err) {
-        console.log(err);
-    }
-});
-// => Write something and then press the <Enter> key
-// <= Hi there!
-// => You wrote: Hi there!
-// => ------------
-
-//you can also use our promise based API
-
-var Q = require('q');
+// Create a hello world
 var helloWorld1 = Cobol(function () { /*
        IDENTIFICATION DIVISION.
        PROGRAM-ID. HELLO.
@@ -141,6 +46,7 @@ var helloWorld1 = Cobol(function () { /*
        STOP RUN.
  */ });
 
+// Create another hello world
 var helloWorld2 = Cobol(function () { /*
        IDENTIFICATION DIVISION.
        PROGRAM-ID. HELLO.
@@ -153,29 +59,27 @@ var helloWorld2 = Cobol(function () { /*
        STOP RUN.
  */ });
 
-Q.all([helloWorld1, helloWorld2]).then(function (res) {
+Promise.all([helloWorld1, helloWorld2]).then(function (res) {
     console.log(res);
 }).catch(function(err) {
     console.log("Something bad happened!" + err);
 });
-// => [ 'Hello world', 'Hello world second time!' ]
+// => ["Hello world", "Hello world second time!"]
 
 ```
 
 ## Documentation
 
-### `Cobol(input, options, callback)`
-Runs COBOL code from Node.JS side.
+### `CobolPromises(input, options, callback)`
+The function receives the [same parameters like the `cobol` package](https://github.com/IonicaBizau/node-cobol#documentation), but returns a promise.
 
 #### Params
-- **Function|String|Path** `input`: A function containing a comment with inline COBOL code, the cobol code itself or a path to a COBOL file.
-- **Object** `options`: An object containing the following fields:
- - `cwd` (String): Where the COBOL code will run (by default in the current working directory)
- - `args` (Array): An array of strings to pass to the COBOL process.
- - `stdin` (Stream): An optional stdin stream used to pipe data to the stdin stream of the COBOL process.
- - `stderr` (Stream): An optional stderr stream used to pipe data to the stdin stream of the COBOL process.
- - `stdeout` (Stream): An optional stdout stream used to pipe data to the stdin stream of the COBOL process.
-- **Function** `callback`: The callback function called with `err`, `stdout` and `stderr`.
+- **Object** `input`: See [`cobol` docs](https://github.com/IonicaBizau/node-cobol#documentation).
+- **Object** `options`: See [`cobol` docs](https://github.com/IonicaBizau/node-cobol#documentation).
+- **Function** `callback`: See [`cobol` docs](https://github.com/IonicaBizau/node-cobol#documentation).
+
+#### Return
+- **Promise** The COBOL promise you.
 
 ## How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
@@ -183,8 +87,6 @@ Have an idea? Found a bug? See [how to contribute][contributing].
 ## License
 [KINDLY][license] © [Ionică Bizău][website]–The [LICENSE](/LICENSE) file contains
 a copy of the license.
-
-[Heading image source](http://www.nyhistory.org/sites/default/files/press/hr/1.5.2c%20GraceHopperCobolCHM_102722559.03.01-HR%2BP.src_.jpg)–Thanks! :cake:
 
 [license]: http://ionicabizau.github.io/kindly-license/?author=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica@gmail.com%3E&year=2015
 [contributing]: /CONTRIBUTING.md
