@@ -13,5 +13,27 @@
   "contributors": [
     "Krzysztof Kaczor <krzkaczor@gmail.com> (http://krzkaczor.github.io/)"
   ],
-  "license": "KINDLY"
+  "license": "KINDLY",
+  "blah": {
+    "h_img": "http://i.imgur.com/DfsVV3F.png"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "cobol": "^1.2.0",
+    "promiscuous": "^0.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krzkaczor/node-cobol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krzkaczor/node-cobol/issues"
+  },
+  "homepage": "https://github.com/krzkaczor/node-cobol"
 }
