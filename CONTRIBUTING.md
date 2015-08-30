@@ -56,6 +56,6 @@ Finally, your contributions will be merged, and everyone will be happy! :smile:
 
 Thanks! :sweat_smile:
 
-[1]: https://github.com/krzkaczor/node-cobol/issues
+[1]: https://github.com/IonicaBizau/node-cobol-promises/issues
 
 [2]: https://github.com/IonicaBizau/code-style
