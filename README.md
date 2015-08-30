@@ -17,7 +17,7 @@
 
 # cobol-promises [![Donate now][donate-now]][paypal-donations]
 
-COBOL bridge for NodeJS with promies support.
+COBOL bridge for NodeJS with promises support.
 
 ## Installation
 

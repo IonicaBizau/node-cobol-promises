@@ -1,7 +1,7 @@
 {
   "name": "cobol-promises",
   "version": "1.0.0",
-  "description": "COBOL bridge for NodeJS with promies support.",
+  "description": "COBOL bridge for NodeJS with promises support.",
   "main": "lib/index.js",
   "keywords": [
     "cobol",
