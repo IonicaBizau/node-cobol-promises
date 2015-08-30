@@ -34,5 +34,4 @@ Promise.all([helloWorld1, helloWorld2]).then(function (res) {
 }).catch(function(err) {
     console.log("Something bad happened!" + err);
 });
-// => Hello world
-// => Hello world second time!
+// => ["Hello world", "Hello world second time!"]
