@@ -1,6 +1,6 @@
 {
   "name": "cobol-promises",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "COBOL bridge for NodeJS with promises support.",
   "main": "lib/index.js",
   "keywords": [
@@ -13,7 +13,7 @@
   "contributors": [
     "Krzysztof Kaczor <krzkaczor@gmail.com> (http://krzkaczor.github.io/)"
   ],
-  "license": "KINDLY",
+  "license": "MIT",
   "blah": {
     "h_img": "http://i.imgur.com/DfsVV3F.png"
   },
