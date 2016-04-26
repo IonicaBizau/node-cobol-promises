@@ -1,6 +1,6 @@
 {
   "name": "cobol-promises",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "COBOL bridge for NodeJS with promises support.",
   "main": "lib/index.js",
   "keywords": [
@@ -35,5 +35,16 @@
   "bugs": {
     "url": "https://github.com/IonicaBizau/node-cobol-promises/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/node-cobol-promises"
+  "homepage": "https://github.com/IonicaBizau/node-cobol-promises",
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js"
+  ]
 }
