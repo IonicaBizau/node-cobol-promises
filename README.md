@@ -1,16 +1,20 @@
+
 [![cobol-promises](http://i.imgur.com/DfsVV3F.png)](#)
 
 # cobol-promises [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Version](https://img.shields.io/npm/v/cobol-promises.svg)](https://www.npmjs.com/package/cobol-promises) [![Downloads](https://img.shields.io/npm/dt/cobol-promises.svg)](https://www.npmjs.com/package/cobol-promises) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
 > COBOL bridge for NodeJS with promises support.
 
-## Installation
+## :cloud: Installation
 
 ```sh
 $ npm i --save cobol-promises
 ```
 
-## Example
+
+## :clipboard: Example
+
+
 
 ```js
 // Dependencies
@@ -52,7 +56,8 @@ Promise.all([helloWorld1, helloWorld2]).then(function (res) {
 // => ["Hello world", "Hello world second time!"]
 ```
 
-## Documentation
+## :memo: Documentation
+
 
 ### `CobolPromises(input, options, callback)`
 The function receives the [same parameters like the `cobol` package](https://github.com/IonicaBizau/node-cobol#documentation), but returns a promise.
@@ -65,13 +70,13 @@ The function receives the [same parameters like the `cobol` package](https://git
 #### Return
 - **Promise** The COBOL promise you.
 
-## How to contribute
+
+
+## :yum: How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
-## Where is this library used?
-If you are using this library in one of your projects, add it in this list. :sparkles:
 
-## License
+## :scroll: License
 
 [MIT][license] © [Ionică Bizău][website]
 
