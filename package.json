@@ -1,6 +1,6 @@
 {
   "name": "cobol-promises",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "COBOL bridge for NodeJS with promises support.",
   "main": "lib/index.js",
   "keywords": [
@@ -9,7 +9,7 @@
     "bridge",
     "promises"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
   "contributors": [
     "Krzysztof Kaczor <krzkaczor@gmail.com> (http://krzkaczor.github.io/)"
   ],
@@ -40,12 +40,11 @@
     "bin/",
     "app/",
     "lib/",
-    "build/",
     "dist/",
     "src/",
+    "scripts/",
     "resources/",
     "menu/",
-    "scripts/",
     "cli.js",
     "index.js"
   ]
