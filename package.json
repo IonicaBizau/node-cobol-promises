@@ -1,6 +1,6 @@
 {
   "name": "cobol-promises",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "COBOL bridge for NodeJS with promises support.",
   "main": "lib/index.js",
   "keywords": [
@@ -46,6 +46,9 @@
     "resources/",
     "menu/",
     "cli.js",
-    "index.js"
+    "index.js",
+    "bloggify.js",
+    "bloggify.json",
+    "bloggify/"
   ]
 }
